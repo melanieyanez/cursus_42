@@ -1,12 +1,3 @@
-[submodule "GNL"]
-	path = Rank01/GNL
-	url = https://github.com/melanieyanez/new_GNL.git
-[submodule "ft_printf"]
-	path = Rank01/ft_printf
-	url = https://github.com/melanieyanez/ft_printf.git
-[submodule "exam_rank_02"]
-	path = Rank01/exam_rank_02
-	url = https://github.com/melanieyanez/exam_rank_02.git
 [submodule "minitalk"]
 	path = Rank02/minitalk
 	url = https://github.com/melanieyanez/new_minitalk.git
@@ -19,3 +10,12 @@
 [submodule "Rank00/Libft"]
 	path = Rank00/Libft
 	url = https://github.com/melanieyanez/new_libft.git
+[submodule "Rank01/Exam_rank_02"]
+	path = Rank01/Exam_rank_02
+	url = https://github.com/melanieyanez/exam_rank_02.git
+[submodule "Rank01/get_next_line"]
+	path = Rank01/get_next_line
+	url = https://github.com/melanieyanez/new_GNL.git
+[submodule "ft_printf"]
+	path = ft_printf
+	url = https://github.com/melanieyanez/ft_printf.git
