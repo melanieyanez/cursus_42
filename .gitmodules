@@ -10,12 +10,12 @@
 [submodule "exam_rank_02"]
 	path = Rank01/exam_rank_02
 	url = https://github.com/melanieyanez/exam_rank_02.git
-[submodule "so-long"]
-	path = Rank02/so-long
-	url = https://github.com/melanieyanez/so_long.git
 [submodule "minitalk"]
 	path = Rank02/minitalk
 	url = https://github.com/melanieyanez/new_minitalk.git
 [submodule "push_swap"]
 	path = Rank02/push_swap
 	url = https://github.com/melanieyanez/push_swap.git
+[submodule "so_long"]
+	path = Rank02/so_long
+	url = https://github.com/melanieyanez/so_long.git
