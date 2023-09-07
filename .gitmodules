@@ -1,6 +1,3 @@
-[submodule "libft"]
-	path = Rank00/libft
-	url = https://github.com/melanieyanez/new_libft.git
 [submodule "GNL"]
 	path = Rank01/GNL
 	url = https://github.com/melanieyanez/new_GNL.git
@@ -19,3 +16,6 @@
 [submodule "so_long"]
 	path = Rank02/so_long
 	url = https://github.com/melanieyanez/so_long.git
+[submodule "Rank00/Libft"]
+	path = Rank00/Libft
+	url = https://github.com/melanieyanez/new_libft.git
