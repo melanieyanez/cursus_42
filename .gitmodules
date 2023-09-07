@@ -1,9 +1,6 @@
 [submodule "minitalk"]
 	path = Rank02/minitalk
 	url = https://github.com/melanieyanez/new_minitalk.git
-[submodule "push_swap"]
-	path = Rank02/push_swap
-	url = https://github.com/melanieyanez/push_swap.git
 [submodule "so_long"]
 	path = Rank02/so_long
 	url = https://github.com/melanieyanez/so_long.git
@@ -19,3 +16,6 @@
 [submodule "Rank01/ft_printf"]
 	path = Rank01/ft_printf
 	url = https://github.com/melanieyanez/ft_printf.git
+[submodule "Rank02/push_swap"]
+	path = Rank02/push_swap
+	url = https://github.com/melanieyanez/push_swap.git
