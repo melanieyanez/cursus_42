@@ -16,6 +16,6 @@
 [submodule "Rank01/get_next_line"]
 	path = Rank01/get_next_line
 	url = https://github.com/melanieyanez/new_GNL.git
-[submodule "ft_printf"]
-	path = ft_printf
+[submodule "Rank01/ft_printf"]
+	path = Rank01/ft_printf
 	url = https://github.com/melanieyanez/ft_printf.git
