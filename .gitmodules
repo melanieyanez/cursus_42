@@ -19,3 +19,6 @@
 [submodule "Rank02/push_swap"]
 	path = Rank02/push_swap
 	url = https://github.com/melanieyanez/push_swap.git
+[submodule "Rank03/minishell"]
+	path = Rank03/minishell
+	url = https://github.com/melanieyanez/minishell.git
