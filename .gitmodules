@@ -22,3 +22,6 @@
 [submodule "Rank03/minishell"]
 	path = Rank03/minishell
 	url = https://github.com/melanieyanez/minishell.git
+[submodule "Rank03/Philosophers"]
+	path = Rank03/Philosophers
+	url = https://github.com/melanieyanez/Philosophers.git
