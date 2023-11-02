@@ -25,6 +25,3 @@
 [submodule "Rank03/Philosophers"]
 	path = Rank03/Philosophers
 	url = https://github.com/melanieyanez/Philosophers.git
-[submodule "libft"]
-	path = libft
-	url = https://github.com/melanieyanez/new_libft.git
