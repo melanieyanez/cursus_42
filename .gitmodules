@@ -25,3 +25,6 @@
 [submodule "Rank03/Philosophers"]
 	path = Rank03/Philosophers
 	url = https://github.com/melanieyanez/Philosophers.git
+[submodule "Rank04/cub3D"]
+	path = Rank04/cub3D
+	url = https://github.com/melanieyanez/cub3D.git
