@@ -28,3 +28,6 @@
 [submodule "Rank04/cub3D"]
 	path = Rank04/cub3D
 	url = https://github.com/melanieyanez/cub3D.git
+[submodule "Rank04/CPP/CPP00"]
+	path = Rank04/CPP/CPP00
+	url = https://github.com/melanieyanez/CPP00.git
