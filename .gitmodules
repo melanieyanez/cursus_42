@@ -34,3 +34,6 @@
 [submodule "Rank04/CPP/CPP01"]
 	path = Rank04/CPP/CPP01
 	url = https://github.com/melanieyanez/CPP01.git
+[submodule "Rank04/CPP/CPP02"]
+	path = Rank04/CPP/CPP02
+	url = https://github.com/melanieyanez/CPP02.git
