@@ -1,0 +1,20 @@
+name: Daily Submodule Update
+
+on:
+  schedule:
+    - cron: '50 14 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update submodules
+        run: |
+          git submodule update --remote --recursive
+          git add .
+          git commit -m "Update submodules to latest commit" || echo "No changes to commit"
+          git push
