@@ -2,16 +2,13 @@ name: Daily Submodule Update
 
 on:
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '0 16 * * *'
 
 jobs:
   update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
       - name: Update submodules
         run: |
           git submodule foreach git pull origin master
