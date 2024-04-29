@@ -2,13 +2,19 @@ name: Daily Submodule Update
 
 on:
   schedule:
-    - cron: '0 16 * * *'
+    - cron: '0 17 * * *'
 
 jobs:
   update:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        run: |
+          git clone https://github.com/melanieyanez/cursus_42.git
+          cd cursus_42
+          git submodule update --init --recursive
+
       - name: Update submodules
         run: |
           git submodule foreach git pull origin master
