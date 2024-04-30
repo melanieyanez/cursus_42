@@ -2,7 +2,7 @@ name: Daily Submodule Update
 
 on:
   schedule:
-    - cron: '30 10 * * *'
+    - cron: '0 11 * * *'
 
 jobs:
   update:
@@ -17,7 +17,8 @@ jobs:
 
       - name: Update submodules
         run: |
-          git submodule foreach git pull origin master
+          git submodule update --init --recursive
+          git submodule foreach "git checkout master; git fetch --all; git reset --hard origin/master; git clean -df"
           git add .
-          git commit -m "AUTO SUBMODULES UPDATE" || echo "No changes to commit"
+          git commit -m 'Updated submodules to latest commit' || echo 'No changes to commit'
           git push origin master
