@@ -2,7 +2,7 @@ name: Daily Submodule Update
 
 on:
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '30 10 * * *'
 
 jobs:
   update:
@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
+          token: ${{ secrets.MY_TOKEN }}
 
       - name: Update submodules
         run: |
