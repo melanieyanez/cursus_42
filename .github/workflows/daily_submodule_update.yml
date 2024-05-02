@@ -2,7 +2,7 @@ name: Daily Submodule Update
 
 on:
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '0 10 * * *'
 
 jobs:
   update:
@@ -15,12 +15,17 @@ jobs:
           submodules: recursive
           token: ${{ secrets.MY_TOKEN }}
 
+      - name: Setup Git identity
+        run: |
+          git config --local user.name "melanieyanez"
+          git config --local user.email "melanieyanez@gmail.com"
+
       - name: Force update submodules to the latest commit
         run: |
           git submodule update --init --recursive
           git submodule foreach "git checkout master; git fetch --all; git reset --hard origin/master; git clean -df"
           git add .
-  
+
       - name: Commit changes
         run: |
           git diff --cached --exit-code --quiet && COMMIT_MESSAGE="No changes in submodules detected" || COMMIT_MESSAGE="AUTO SUBMODULES UPDATE"
