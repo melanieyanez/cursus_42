@@ -2,8 +2,8 @@ name: Submodule Update
 
 on:
   schedule:
-    - cron: '0 6 * * *'
-    - cron: '0 0-5,7-23 * * *'
+    - cron: '0 4 * * *'
+    - cron: '0 0-3,5-23 * * *'
 
 jobs:
   force-update:
@@ -26,9 +26,16 @@ jobs:
           git submodule update --init --recursive
           git submodule foreach "git checkout master; git fetch --all; git reset --hard origin/master; git clean -df"
 
+      - name: Pull latest changes
+        run: |
+          git pull --rebase origin master
+
       - name: Commit changes
         run: |
           git commit -m "AUTO SUBMODULES UPDATE" --allow-empty
+
+      - name: Push changes
+        run: |
           git push origin master
 
   check-update:
@@ -51,7 +58,14 @@ jobs:
           git submodule update --init --recursive
           git submodule foreach "git checkout master; git fetch --all; git reset --hard origin/master; git clean -df"
 
+      - name: Pull latest changes
+        run: |
+          git pull --rebase origin master
+
       - name: Commit changes if there are any
         run: |
           git commit -m "AUTO SUBMODULES UPDATE" || echo "No changes to commit"
+
+      - name: Push changes
+        run: |
           git push origin master
