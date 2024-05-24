@@ -2,14 +2,11 @@ name: Submodule Update
 
 on:
   schedule:
-    # Force commit at 6 AM
     - cron: '0 6 * * *'
-    # Check for changes every hour except 6 AM
     - cron: '0 0-5,7-23 * * *'
 
 jobs:
   force-update:
-    if: github.event.schedule == '0 6 * * *'
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +32,6 @@ jobs:
           git push origin master
 
   check-update:
-    if: github.event.schedule != '0 6 * * *'
     runs-on: ubuntu-latest
 
     steps:
@@ -57,9 +53,5 @@ jobs:
 
       - name: Commit changes if there are any
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "AUTO SUBMODULES UPDATE"
-            git push origin master
-          else
-            echo "No changes in submodules detected"
-          fi
+          git commit -m "AUTO SUBMODULES UPDATE" || echo "No changes to commit"
+          git push origin master
