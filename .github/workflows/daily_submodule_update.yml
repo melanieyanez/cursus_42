@@ -1,4 +1,4 @@
-name: Submodule Update
+name: Daily Submodule Update
 
 on:
   schedule:
@@ -25,17 +25,12 @@ jobs:
         run: |
           git submodule update --init --recursive
           git submodule foreach "git checkout master; git fetch --all; git reset --hard origin/master; git clean -df"
-
-      - name: Pull latest changes
-        run: |
-          git pull --rebase origin master
+          git add .
 
       - name: Commit changes
         run: |
-          git commit -m "AUTO SUBMODULES UPDATE" --allow-empty
-
-      - name: Push changes
-        run: |
+          git diff --cached --exit-code --quiet && COMMIT_MESSAGE="No changes in submodules detected" || COMMIT_MESSAGE="AUTO SUBMODULES UPDATE"
+          git commit -m "$COMMIT_MESSAGE" --allow-empty
           git push origin master
 
   check-update:
@@ -53,19 +48,13 @@ jobs:
           git config --local user.name "melanieyanez"
           git config --local user.email "melanieyanez@gmail.com"
 
-      - name: Update submodules to the latest commit if changed
+      - name: Force update submodules to the latest commit
         run: |
           git submodule update --init --recursive
           git submodule foreach "git checkout master; git fetch --all; git reset --hard origin/master; git clean -df"
+          git add .
 
-      - name: Pull latest changes
+      - name: Commit changes
         run: |
-          git pull --rebase origin master
-
-      - name: Commit changes if there are any
-        run: |
-          git commit -m "AUTO SUBMODULES UPDATE" || echo "No changes to commit"
-
-      - name: Push changes
-        run: |
+          git commit -m "AUTO SUBMODULES UPDATE"
           git push origin master
