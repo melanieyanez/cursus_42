@@ -1,11 +1,15 @@
-name: Daily Submodule Update
+name: Submodule Update
 
 on:
   schedule:
-    - cron: '0 4 * * *'
+    # Force commit at 6 AM
+    - cron: '0 6 * * *'
+    # Check for changes every hour except 6 AM
+    - cron: '0 0-5,7-23 * * *'
 
 jobs:
-  update:
+  force-update:
+    if: github.event.schedule == '0 6 * * *'
     runs-on: ubuntu-latest
 
     steps:
@@ -24,10 +28,38 @@ jobs:
         run: |
           git submodule update --init --recursive
           git submodule foreach "git checkout master; git fetch --all; git reset --hard origin/master; git clean -df"
-          git add .
 
       - name: Commit changes
         run: |
-          git diff --cached --exit-code --quiet && COMMIT_MESSAGE="No changes in submodules detected" || COMMIT_MESSAGE="AUTO SUBMODULES UPDATE"
-          git commit -m "$COMMIT_MESSAGE" --allow-empty
+          git commit -m "AUTO SUBMODULES UPDATE" --allow-empty
           git push origin master
+
+  check-update:
+    if: github.event.schedule != '0 6 * * *'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          token: ${{ secrets.MY_TOKEN }}
+
+      - name: Setup Git identity
+        run: |
+          git config --local user.name "melanieyanez"
+          git config --local user.email "melanieyanez@gmail.com"
+
+      - name: Update submodules to the latest commit if changed
+        run: |
+          git submodule update --init --recursive
+          git submodule foreach "git checkout master; git fetch --all; git reset --hard origin/master; git clean -df"
+
+      - name: Commit changes if there are any
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "AUTO SUBMODULES UPDATE"
+            git push origin master
+          else
+            echo "No changes in submodules detected"
+          fi
