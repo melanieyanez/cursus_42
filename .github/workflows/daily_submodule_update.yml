@@ -7,7 +7,7 @@ on:
 
 jobs:
   force-update:
-    if: github.event.schedule == '0 6 * * *'
+    if: github.event.schedule == '0 4 * * *'
     runs-on: ubuntu-latest
 
     steps:
@@ -30,11 +30,14 @@ jobs:
 
       - name: Commit changes
         run: |
-          git commit -m "AUTO SUBMODULES UPDATE" --allow-empty
-          git push origin master
+          git commit -m "AUTO SUBMODULES UPDATE" || echo "No changes to commit"
+      
+      - name: Push changes
+        run: |
+          git push origin master || echo "Nothing to push"
 
   check-update:
-    if: github.event.schedule != '0 6 * * *'
+    if: github.event.schedule != '0 4 * * *'
     runs-on: ubuntu-latest
 
     steps:
@@ -57,5 +60,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          git commit -m "AUTO SUBMODULES UPDATE"
-          git push origin master
+          git commit -m "AUTO SUBMODULES UPDATE" || echo "No changes to commit"
+
+      - name: Push changes
+        run: |
+          git push origin master || echo "Nothing to push"
