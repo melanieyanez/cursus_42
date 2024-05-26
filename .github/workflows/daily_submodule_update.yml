@@ -30,11 +30,12 @@ jobs:
 
       - name: Commit changes
         run: |
-          git commit -m "AUTO SUBMODULES UPDATE" || echo "No changes to commit"
+          git diff --cached --exit-code --quiet && COMMIT_MESSAGE="No changes in submodules detected" || COMMIT_MESSAGE="AUTO SUBMODULES UPDATE"
+          git commit -m "$COMMIT_MESSAGE" --allow-empty
       
       - name: Push changes
         run: |
-          git push origin master || echo "Nothing to push"
+          git push origin master
 
   check-update:
     if: github.event.schedule != '0 4 * * *'
