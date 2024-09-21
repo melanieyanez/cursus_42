@@ -61,3 +61,6 @@
 [submodule "Rank05/CPP/CPP09"]
 	path = Rank05/CPP/CPP09
 	url = https://github.com/melanieyanez/CPP09.git
+[submodule "Rank05/ft_irc"]
+	path = Rank05/ft_irc
+	url = https://github.com/melanieyanez/ft_irc.git
