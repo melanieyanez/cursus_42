@@ -64,3 +64,12 @@
 [submodule "Rank05/ft_irc"]
 	path = Rank05/ft_irc
 	url = https://github.com/melanieyanez/ft_irc.git
+[submodule "Rank05/Inception"]
+	path = Rank05/Inception
+	url = https://github.com/melanieyanez/Inception.git
+[submodule "Rank06/Exam_Rank_06"]
+	path = Rank06/Exam_Rank_06
+	url = https://github.com/melanieyanez/Exam_Rank_06.git
+[submodule "Rank06/Transcendence"]
+	path = Rank06/Transcendence
+	url = https://github.com/melanieyanez/transcendence.git
